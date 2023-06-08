@@ -1,0 +1,18 @@
+(ns app.main
+  (:require ["package:flutter/material.dart" :as m]
+            [app.a :as a]
+            [cljd.flutter :as f]))
+
+(defn main []
+  (f/run
+   (m/MaterialApp
+    .title "Welcome to Flutter"
+    .theme (m/ThemeData .primarySwatch m.Colors/pink))
+   .home
+   (m/Scaffold
+    .appBar (m/AppBar
+             .title (m/Text "Welcome to ClojureDart")))
+   .body
+   m/Center
+   (m/OutlinedButton .child (m/Text "Say Hi")
+                     .onPressed a/call-say-hi)))
